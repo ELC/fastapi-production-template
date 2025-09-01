@@ -12,9 +12,9 @@ WORKDIR /app
 RUN --mount=type=cache,target=/root/.cache/uv \
     --mount=type=bind,source=uv.lock,target=uv.lock \
     --mount=type=bind,source=pyproject.toml,target=pyproject.toml \
-    uv sync --locked --no-install-project --no-default-groups
+    uv sync --frozen --verbose --no-default-groups --no-install-project --no-install-workspace
 
-COPY . /app
+COPY . .
 
 RUN --mount=type=cache,target=/root/.cache/uv \
     uv sync --locked --no-default-groups
@@ -27,4 +27,4 @@ ENV PATH="/app/.venv/bin:$PATH"
 
 WORKDIR /app
 
-CMD ["python", "-m", "app"]
+CMD ["python", "start.py"]
