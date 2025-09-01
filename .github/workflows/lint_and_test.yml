@@ -111,7 +111,7 @@ jobs:
 
     - name: Run Linter
       run: |
-        uv run --frozen --no-sync --directory "packages/${{ matrix.package_name }}" poe format
+        uv run --frozen --no-sync poe format --files "packages/${{ matrix.package_name }}/*"
 
   test:
     runs-on: ubuntu-latest

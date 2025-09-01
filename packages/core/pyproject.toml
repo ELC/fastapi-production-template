@@ -26,7 +26,6 @@ build-backend = "uv_build"
 
 [tool.poe.tasks]
 test = "uv run pytest"
-format = "uv run pre-commit run --all-files --verbose"
 check-coverage = "uv run coverage report --fail-under=80"
 version-bump = "uv run semantic-release -v version --no-tag --no-commit --skip-build --changelog"
 
