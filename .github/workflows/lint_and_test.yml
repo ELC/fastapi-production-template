@@ -37,6 +37,7 @@ jobs:
     needs: discovery
 
     strategy:
+      fail-fast: false
       matrix:
         package_name: ${{ fromJSON(needs.discovery.outputs.packages) }}
 
@@ -93,6 +94,7 @@ jobs:
     needs: discovery
 
     strategy:
+      fail-fast: false
       matrix:
         package_name: ${{ fromJSON(needs.discovery.outputs.packages) }}
 
@@ -119,6 +121,7 @@ jobs:
     needs: discovery
 
     strategy:
+      fail-fast: false
       matrix:
         package_name: ${{ fromJSON(needs.discovery.outputs.packages) }}
 
