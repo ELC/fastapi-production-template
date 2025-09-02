@@ -36,9 +36,11 @@ version-bump = "uv run semantic-release -v version --no-tag --no-commit --skip-b
 match = "*"
 
 [tool.semantic_release]
-commit_message = "chore(release): bump version and update changelog"
+commit_parser = "../../scripts/monorepo_parser.py:ConventionalCommitMonorepoParser"
+commit_message = "chore(release): bump version of core"
+tag_format = "frontend-{version}"
 version_source = "tag"
-version_variables = ["src/app/__init__.py:__version__"]
+version_variables = ["src/frontend/__init__.py:__version__"]
 version_toml = [
     "pyproject.toml:project.version:nf",
 ]
@@ -80,9 +82,7 @@ parallel = true
 source = ["src", "tests"]
 omit = [
     "**/__main__.py",
-    "src/app/api/__init__.py",
-    "src/app/frontend/*",
-    "src/app/settings.py",
+    "src/frontend/*",
 ]
 
 
