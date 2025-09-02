@@ -82,7 +82,7 @@ jobs:
         echo "$differences"
 
         git add --all
-        git commit -m "chore(release): bump version and update changelog"
+        git commit -m "chore(${{ matrix.package_name }}-release): bump version and update changelog"
         git push
 
         sleep 30
