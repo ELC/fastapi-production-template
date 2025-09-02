@@ -181,7 +181,7 @@ jobs:
       if: ${{ !cancelled() }}
       with:
         name: Pytests Tests
-        path: pytest-report.xml
+        path: packages/${{ matrix.package_name }}/pytest-report.xml
         reporter: jest-junit
 
     - name: SonarQube Scan
@@ -195,8 +195,8 @@ jobs:
           -Dsonar.projectKey=elc-github_fastapi-production-template-${{ matrix.package_name }}
           -Dsonar.python.coverage.reportPaths=packages/${{ matrix.package_name }}/coverage.xml
           -Dsonar.python.version=3.12
-          -Dsonar.sources=src
-          -Dsonar.tests=tests
+          -Dsonar.sources=packages/${{ matrix.package_name }}/src
+          -Dsonar.tests=packages/${{ matrix.package_name }}/tests
           -Dsonar.python.xunit.reportPath=packages/${{ matrix.package_name }}/pytest-report.xml
           -Dsonar.coverage.exclusions="**/__main__.py, src/api/__init__.py, src/frontend/**, src/api/settings.py, src/frontend/settings.py, src/core/settings.py"
 
