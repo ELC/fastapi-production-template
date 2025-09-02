@@ -43,6 +43,7 @@ commit_message = "chore(release): bump version of api"
 tag_format = "api-{version}"
 version_source = "tag"
 version_variables = ["src/api/__init__.py:__version__"]
+allow_zero_version = true
 
 [tool.semantic_release.changelog]
 exclude_commit_patterns = ["chore*", "Merge*"]
