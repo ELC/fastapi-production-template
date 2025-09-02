@@ -37,7 +37,7 @@ match = "*"
 
 [tool.semantic_release]
 commit_parser = "../../scripts/monorepo_parser.py:ConventionalCommitMonorepoParser"
-commit_message = "chore(release): bump version of core"
+commit_message = "chore(frontend-release): bump version of frontend"
 tag_format = "frontend-{version}"
 version_source = "tag"
 version_variables = ["src/frontend/__init__.py:__version__"]
