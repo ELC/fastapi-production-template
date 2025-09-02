@@ -192,13 +192,13 @@ jobs:
       with:
         args: >
           -Dsonar.organization=elc-github
-          -Dsonar.projectKey=ELC_fastapi-production-template
-          -Dsonar.python.coverage.reportPaths=coverage.xml
+          -Dsonar.projectKey=elc-github_fastapi-production-template-${{ matrix.package_name }}
+          -Dsonar.python.coverage.reportPaths=packages/${{ matrix.package_name }}/coverage.xml
           -Dsonar.python.version=3.12
           -Dsonar.sources=src
           -Dsonar.tests=tests
-          -Dsonar.python.xunit.reportPath=pytest-report.xml
-          -Dsonar.coverage.exclusions="**/__main__.py, src/app/api/__init__.py, src/app/frontend/**, src/app/settings.py"
+          -Dsonar.python.xunit.reportPath=packages/${{ matrix.package_name }}/pytest-report.xml
+          -Dsonar.coverage.exclusions="**/__main__.py, src/api/__init__.py, src/frontend/**, src/api/settings.py, src/frontend/settings.py, src/core/settings.py"
 
     - name: Check Coverage
       run: |
